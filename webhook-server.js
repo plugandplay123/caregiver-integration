@@ -108,7 +108,13 @@ app.post("/webhook/pandadoc", async (req, res) => {
 
     console.log(`\nEvent: ${eventName} | Status: ${status} | Doc: ${documentName}`);
 
-    // Only process when the document is fully completed
+    // Only process document_state_changed — ignore recipient_completed duplicate
+    if (eventName !== "document_state_changed") {
+      console.log("Skipping event type:", eventName);
+      continue;
+    }
+
+    // Only process when fully completed
     if (status !== "document.completed") {
       console.log("Not completed yet — skipping");
       continue;
