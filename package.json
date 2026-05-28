@@ -1,0 +1,14 @@
+{
+  "name": "pandadoc-axiscare-integration",
+  "version": "1.0.0",
+  "description": "Creates caregiver records in AxisCare from completed PandaDoc application forms",
+  "main": "webhook-server.js",
+  "scripts": {
+    "create-template": "node create-template.js",
+    "start": "node webhook-server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2"
+  }
+}
